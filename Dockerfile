@@ -36,11 +36,15 @@ RUN yum -y install  ncftp
 # WORKDIR /root/repo/CentOS/7/SRPMS
 # RUN createrepo .
 
+RUN echo "host $FTP_HOSTNAME" >> ftp.config
+RUN echo "user $FTP_USERNAME" >> ftp.config
+RUN echo "pass $FTP_PASSWORD" >> ftp.config
+RUN cat ftp.config
 RUN echo $FTP_USERNAME
 RUN echo $FTP_HOSTNAME
 RUN echo $FTP_PASSWORD
 
-RUN ncftpget -d stdout -E -u $FTP_USERNAME -p $FTP_PASSWORD -R -DD $FTP_HOSTNAME /tmp/ /web/repo/qpid-proton-devel/
+RUN ncftpget -d stdout -f ftp.config -R -DD /tmp/ /web/repo/qpid-proton-devel/
 RUN ncftpput -d stdout -u $FTP_USERNAME -p $FTP_PASSWORD -R $FTP_HOSTNAME /web/repo/qpid-proton-devel/ /root/repo/*
 
 # Nothing to run
