@@ -6,4 +6,5 @@ services:
   - docker
 
 script:
+  - curl -v -u $FTP_USERNAME:$FTP_PASSWORD ftp://$FTP_HOSTNAME/FileTodelete.xml -Q 'DELETE FileTodelete.xml'
   - docker build --no-cache --build-arg FTP_USERNAME=$FTP_USERNAME --build-arg FTP_PASSWORD=$FTP_PASSWORD --build-arg FTP_HOSTNAME=$FTP_HOSTNAME -t scholzj/qpid-proton-build:travis .
