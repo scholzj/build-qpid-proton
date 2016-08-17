@@ -13,8 +13,8 @@
 }
 
 Name:           qpid-proton
-Version:        0.15.0
-Release:        SNAPSHOT%{?dist}
+Version:        0.14.0
+Release:        RC%{?dist}
 Summary:        A high performance, lightweight messaging library
 
 License:        ASL 2.0
