@@ -14,12 +14,12 @@ else
     GITHUB_BRANCH=$4
 fi
 
-body='{
-"request": {
-  "message": "Triggered per request from ${TRAVIS_REPO_SLUG}",
-  "branch":"${GITHUB_BRANCH}"
+body="{
+\"request\": {
+  \"message\": \"Triggered per request from ${TRAVIS_REPO_SLUG}\",
+  \"branch\": \"${GITHUB_BRANCH}\"
   }
-}'
+}"
 
 curl -s -X POST \
   -H "Content-Type: application/json" \
