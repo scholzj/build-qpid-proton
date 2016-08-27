@@ -18,7 +18,6 @@ RUN rpmdev-setuptree
 WORKDIR /root/rpmbuild/SOURCES
 RUN wget https://github.com/apache/qpid-proton/archive/0.14.0.tar.gz
 RUN tar -xf 0.14.0.tar.gz
-RUN mv qpid-proton-0.14.0 qpid-proton-0.14.0
 RUN tar -z -cf qpid-proton-0.14.0.tar.gz qpid-proton-0.14.0/
 RUN rm -rf 0.14.0.tar.gz qpid-proton-0.14.0
 WORKDIR /root/rpmbuild/SPECS
