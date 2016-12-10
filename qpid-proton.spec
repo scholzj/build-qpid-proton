@@ -13,7 +13,7 @@
 }
 
 Name:           qpid-proton
-Version:        0.16.0
+Version:        0.17.0
 Release:        SNAPSHOT%{?dist}
 Summary:        A high performance, lightweight messaging library
 
@@ -70,8 +70,9 @@ Provides:  qpid-proton = %{version}-%{release}
 %dir %{proton_datadir}
 %doc %{proton_datadir}/LICENSE
 %doc %{proton_datadir}/README.md
-%doc %{proton_datadir}/TODO
+#%doc %{proton_datadir}/TODO
 %{_libdir}/libqpid-proton.so.*
+%{_libdir}/libqpid-proton-core.so.*
 
 
 %post c -p /sbin/ldconfig
@@ -95,13 +96,13 @@ Provides:  qpid-proton-devel = %{version}-%{release}
 %defattr(-,root,root,-)
 %{_includedir}/proton
 %{_libdir}/libqpid-proton.so
+%{_libdir}/libqpid-proton-core.so
 %{_libdir}/pkgconfig/libqpid-proton.pc
 %{_libdir}/pkgconfig/libqpid-proton-cpp.pc
+%{_libdir}/pkgconfig/libqpid-proton-core.pc
 %{_libdir}/cmake/Proton
 %{_libdir}/cmake/ProtonCpp
 %doc %{proton_datadir}/examples
-
-
 
 %package c-devel-doc
 Summary:   Documentation for the C development libraries for Qpid Proton
@@ -199,7 +200,7 @@ Requires:  qpid-proton-c = %{version}-%{release}
 
 
 %files -n perl-qpid-proton
-%doc LICENSE TODO README.md
+%doc LICENSE README.md
 %{perl_vendorarch}/*
 
 
@@ -229,7 +230,7 @@ make all docs %{?_smp_mflags}
 CPROTON_BUILD=$PWD . ./config.sh
 
 chmod +x %{buildroot}%{python_sitearch}/_cproton.so
-find %{buildroot}%{proton_datadir}/examples/ -type f | xargs chmod -x
+#find %{buildroot}%{proton_datadir}/examples/ -type f | xargs chmod -x
 
 
 # clean up files that are not shipped
