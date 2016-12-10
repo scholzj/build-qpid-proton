@@ -72,8 +72,6 @@ Provides:  qpid-proton = %{version}-%{release}
 %doc %{proton_datadir}/README.md
 #%doc %{proton_datadir}/TODO
 %{_libdir}/libqpid-proton.so.*
-%{_libdir}/libqpid-proton-core.so.*
-
 
 %post c -p /sbin/ldconfig
 
@@ -96,7 +94,6 @@ Provides:  qpid-proton-devel = %{version}-%{release}
 %defattr(-,root,root,-)
 %{_includedir}/proton
 %{_libdir}/libqpid-proton.so
-%{_libdir}/libqpid-proton-core.so
 %{_libdir}/pkgconfig/libqpid-proton.pc
 %{_libdir}/pkgconfig/libqpid-proton-cpp.pc
 %{_libdir}/pkgconfig/libqpid-proton-core.pc
