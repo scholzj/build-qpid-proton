@@ -97,9 +97,11 @@ Provides:  qpid-proton-devel = %{version}-%{release}
 %{_includedir}/proton
 %{_libdir}/libqpid-proton.so
 %{_libdir}/libqpid-proton-core.so
+%{_libdir}/libqpid-proton-proactor.so
 %{_libdir}/pkgconfig/libqpid-proton.pc
 %{_libdir}/pkgconfig/libqpid-proton-cpp.pc
 %{_libdir}/pkgconfig/libqpid-proton-core.pc
+%{_libdir}/pkgconfig/libqpid-proton-proactor.pc
 %{_libdir}/cmake/Proton
 %{_libdir}/cmake/ProtonCpp
 %doc %{proton_datadir}/examples
