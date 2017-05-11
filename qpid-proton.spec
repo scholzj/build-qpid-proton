@@ -73,7 +73,7 @@ Provides:  qpid-proton = %{version}-%{release}
 #%doc %{proton_datadir}/TODO
 %{_libdir}/libqpid-proton.so.*
 %{_libdir}/libqpid-proton-core.so.*
-%{_libdir}/libqpid-proton-proactor.so
+%{_libdir}/libqpid-proton-proactor.so.*
 
 
 %post c -p /sbin/ldconfig
