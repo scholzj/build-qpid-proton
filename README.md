@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/scholzj/build-qpid-proton.svg?branch=master)](https://travis-ci.org/scholzj/build-qpid-proton)
+[![CircleCI](https://circleci.com/gh/scholzj/build-qpid-proton.svg?style=shield)](https://circleci.com/gh/scholzj/build-qpid-proton)
 
 # Apache Qpid Proton build pipeline
 
