@@ -9,6 +9,12 @@ jobs:
       - run:
           name: Build Docker image
           command: docker build --no-cache --build-arg FTP_USERNAME=$FTP_USERNAME --build-arg FTP_PASSWORD=$FTP_PASSWORD --build-arg FTP_HOSTNAME=$FTP_HOSTNAME -t scholzj/qpid-proton-build:travis .
+      - deploy:
+          name: Trigger docker image build
+          command: |
+            curl -u ${CIRCLE_TOKEN}: \
+              -d build_parameters[CIRCLE_JOB]=qpid_${BROKER_VERSION} \
+              https://circleci.com/api/v1.1/project/github/scholzj/docker-qpid-proton/tree/master
 workflows:
   version: 2
   build-workflow:
