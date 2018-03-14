@@ -1,4 +1,4 @@
-FROM		scholzj:centos-builder-base
+FROM		scholzj/centos-builder-base:centos7-latest
 MAINTAINER 	JAkub Scholz "www@scholzj.com"
 
 ARG FTP_USERNAME
