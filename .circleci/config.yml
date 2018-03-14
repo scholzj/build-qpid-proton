@@ -2,10 +2,13 @@ version: 2
 jobs:
   build:
     docker:
-      - image: docker:17.06.0-git
+      - image: docker:stable-git
     steps:
       - setup_remote_docker
       - checkout
+      - run:
+        name: Install curl
+        command: apk add --no-cache curl
       - run:
           name: Build Docker image
           command: docker build --no-cache --build-arg FTP_USERNAME=$FTP_USERNAME --build-arg FTP_PASSWORD=$FTP_PASSWORD --build-arg FTP_HOSTNAME=$FTP_HOSTNAME -t scholzj/qpid-proton-build:travis .
