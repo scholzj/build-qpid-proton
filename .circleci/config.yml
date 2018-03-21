@@ -8,7 +8,7 @@ jobs:
       - checkout
       - run:
           name: Install curl
-          command: apk add --no-cache curl
+          command: apk add -u --no-cache curl
       - run:
           name: Build Docker image
           command: docker build --no-cache --build-arg FTP_USERNAME=$FTP_USERNAME --build-arg FTP_PASSWORD=$FTP_PASSWORD --build-arg FTP_HOSTNAME=$FTP_HOSTNAME -t scholzj/qpid-proton-build:travis .
