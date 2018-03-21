@@ -40,9 +40,9 @@ BuildRequires:  openssl-devel
 BuildRequires:  python
 BuildRequires:  python-devel
 BuildRequires:  epydoc
-BuildRequires:  perl(ExtUtils::MakeMaker)
-BuildRequires:  perl(Test::Exception)
-BuildRequires:  perl(Test::More)
+#BuildRequires:  perl(ExtUtils::MakeMaker)
+#BuildRequires:  perl(Test::Exception)
+#BuildRequires:  perl(Test::More)
 
 
 
@@ -186,28 +186,6 @@ BuildArch: noarch
 %doc %{proton_datadir}/docs/api-py
 
 
-
-%package -n perl-qpid-proton
-Summary: Perl language bindings for Qpid Proton messaging framework
-
-# Remove with Proton 0.11
-Obsoletes: perl-qpid_proton < %{version}
-Provides:  perl-qpid_proton = %{version}-%{release}
-
-Requires:  perl(:MODULE_COMPAT_%(eval "`%{__perl} -V:version`"; echo $version))
-Requires:  qpid-proton-c = %{version}-%{release}
-
-
-%description -n perl-qpid-proton
-%{summary}.
-
-
-%files -n perl-qpid-proton
-%doc LICENSE README.md
-%{perl_vendorarch}/*
-
-
-
 %prep
 %setup -q -n %{name}-%{version}
 
@@ -218,9 +196,7 @@ Requires:  qpid-proton-c = %{version}-%{release}
     -DPROTON_DISABLE_RPATH=true \
     -DPYTHON_SITEARCH_PACKAGES=%{python_sitearch} \
     -DNOBUILD_RUBY=1 \
-    -DNOBUILD_PHP=1 \
     -DSYSINSTALL_PYTHON=1 \
-    -DSYSINSTALL_PERL=1 \
     -DCHECK_SYSINSTALL_PYTHON=0 \
     .
 make all docs %{?_smp_mflags}
@@ -242,13 +218,6 @@ rm -rf %{buildroot}%{_libdir}/java
 rm -rf %{buildroot}%{_libdir}/libproton-jni.so
 rm -rf %{buildroot}%{_datarootdir}/java
 rm -rf %{buildroot}%{_libdir}/proton.cmake
-
-
-%check
-# check perl bindings
-pushd proton-c/bindings/perl
-make test
-popd
 
 %changelog
 * Wed Apr  8 2015 Darryl L. Pierce <dpierce@redhat.com> - 0.9-3
