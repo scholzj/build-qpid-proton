@@ -196,6 +196,7 @@ BuildArch: noarch
     -DPROTON_DISABLE_RPATH=true \
     -DPYTHON_SITEARCH_PACKAGES=%{python_sitearch} \
     -DNOBUILD_RUBY=1 \
+    -DENABLE_FUZZ_TESTING=NO \
     -DSYSINSTALL_PYTHON=1 \
     -DCHECK_SYSINSTALL_PYTHON=0 \
     .
