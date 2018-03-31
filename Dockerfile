@@ -1,5 +1,5 @@
 FROM		scholzj/centos-builder-base:centos7-latest
-MAINTAINER 	JAkub Scholz "www@scholzj.com"
+LABEL       maintainer="Jakub Scholz <www@scholzj.com>"
 
 ARG FTP_USERNAME
 ARG FTP_PASSWORD
