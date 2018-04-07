@@ -68,7 +68,7 @@ Provides:  qpid-proton = %{version}-%{release}
 %files c
 %defattr(-,root,root,-)
 %dir %{proton_datadir}
-%doc %{proton_datadir}/LICENSE
+%doc %{proton_datadir}/LICENSE.txt
 %doc %{proton_datadir}/README.md
 #%doc %{proton_datadir}/TODO
 %{_libdir}/libqpid-proton.so.*
