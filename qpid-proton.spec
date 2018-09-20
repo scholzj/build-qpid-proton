@@ -219,6 +219,7 @@ rm -rf %{buildroot}%{_libdir}/java
 rm -rf %{buildroot}%{_libdir}/libproton-jni.so
 rm -rf %{buildroot}%{_datarootdir}/java
 rm -rf %{buildroot}%{_libdir}/proton.cmake
+rm -rf %{proton_datadir}/tests
 
 %changelog
 * Wed Apr  8 2015 Darryl L. Pierce <dpierce@redhat.com> - 0.9-3
