@@ -9,11 +9,8 @@ USER root
 
 RUN rpmdev-setuptree
 WORKDIR /root/rpmbuild/SOURCES
-RUN wget https://github.com/apache/qpid-proton/archive/master.tar.gz
-RUN tar -xf master.tar.gz
-RUN mv qpid-proton-master/ qpid-proton-0.28.0/
-RUN tar -z -cf qpid-proton-0.28.0.tar.gz qpid-proton-0.28.0/
-RUN rm -rf master.tar.gz qpid-proton-0.28.0/
+RUN wget https://github.com/apache/qpid-proton/archive/0.28.0-rc1.tar.gz
+RUN mv 0.28.0-rc1.tar.gz qpid-proton-0.28.0.tar.gz
 WORKDIR /root/rpmbuild/SPECS
 ADD ./qpid-proton.spec /root/rpmbuild/SPECS/qpid-proton.spec
 RUN rpmbuild -ba qpid-proton.spec
@@ -29,8 +26,8 @@ RUN createrepo .
 WORKDIR /root/repo/CentOS/7/SRPMS
 RUN createrepo .
 
-RUN ncftpget -u $FTP_USERNAME -p $FTP_PASSWORD -R -DD $FTP_HOSTNAME /tmp/ /web/repo/qpid-proton-devel/
-RUN ncftpput -u $FTP_USERNAME -p $FTP_PASSWORD -R $FTP_HOSTNAME /web/repo/qpid-proton-devel/ /root/repo/*
+RUN ncftpget -u $FTP_USERNAME -p $FTP_PASSWORD -R -DD $FTP_HOSTNAME /tmp/ /web/repo/qpid-proton-testing/
+RUN ncftpput -u $FTP_USERNAME -p $FTP_PASSWORD -R $FTP_HOSTNAME /web/repo/qpid-proton-testing/ /root/repo/*
 
 # Nothing to run
 CMD    /bin/bash
