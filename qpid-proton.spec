@@ -171,21 +171,6 @@ Requires: python
 %{python_sitearch}/proton
 
 
-
-%package -n python-qpid-proton-doc
-Summary:   Documentation for the Python language bindings for Qpid Proton
-BuildArch: noarch
-
-
-%description -n python-qpid-proton-doc
-%{summary}.
-
-
-%files -n python-qpid-proton-doc
-%defattr(-,root,root,-)
-%doc %{proton_datadir}/docs/api-py
-
-
 %prep
 %setup -q -n %{name}-%{version}
 
